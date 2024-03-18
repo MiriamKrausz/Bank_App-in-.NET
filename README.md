@@ -1,31 +1,32 @@
-ניהול בנק<br>
+# Bank Management System
 
-מערכת לניהול חשבונות בנק, באמצעות המערכת ניתן לעקוב אחר פרטי החשבון, ליצור חשבון חדש ולנהל את כלל התורים של הלקוחות.<br>
-ישויות:<br>
-• תורים<br>
-• פקידים<br>
-• לקוחות<br>
+A bank account management system that allows you to manage the queues of customers, view customer details, and perform various operations on them.
 
-מיפוי Routes לתורים:<br>
-• שליפת רשימת כלל התורים <Get https://bank.co.il/queues <br>
-• שליפת תור לפי מזהה תורGet https://bank.co.il/queues/5874 <br>
-• יצירת תור חדש Post https://bank.co.il/queues<br>
-• עדכון תור Put https://bank.co.il/queues/5874 <br>
-• מחיקת תור לפי מזהה Delete https://bank.co.il/queues/5874 <br>
-• עדכון שם בעל התור: Put https://bank.co.il/queues/5874/ownersName<br>
+## Entities
+- Queues
+- Officials
+- Customers
 
-מיפוי Routes לפקידים:<br>
-• שליפת רשימת הפקידים Get https://bank.co.il/officials <br>
-• שליפת רשימת הפקידים לפי סניף Get https://bank.co.il/officials/branch <br>
-• שליפת פקיד לפי מזהה Get https://bank.co.il/officials/1 <br>
-• הוספת פקיד Post https://bank.co.il/officials <br>
-• עדכון פרטי פקיד Put https://bank.co.il/officials/1 <br>
-• מחיקת פקיד לפי מזהה Delete https://bank.co.il/officials/1 <br>
+## Mapping Routes to Queues
+- Retrieving the list of all queues: GET https://bank.co.il/queues
+- Queue retrieval by queue ID: GET https://bank.co.il/queues/5874
+- Creating a new queue: POST https://bank.co.il/queues
+- Queue update: PUT https://bank.co.il/queues/5874
+- Queue deletion by ID: DELETE https://bank.co.il/queues/5874
+- Update queue owner name: PUT https://bank.co.il/queues/5874/ownersName
 
-מיפוי Routes ללקוחות:<br>
-• שליפת רשימת הלקוחות Get https://bank.co.il/customers <br>
-• שליפת רשימת לקוחות לפי כתובת Get https://bank.co.il/customers/address
-• שליפת לקוח לפי מזהה Get https://bank.co.il/customers/1 <br>
-• הוספת לקוח Post https://bank.co.il/customers <br>
-• עדכון פרטי לקוח Put https://bank.co.il/customers/1 <br>
-• מחיקת לקוח לפי מזהה Delete https://bank.co.il/customers/1 <br>
+## Routes Mapping for Officials
+- Retrieving the list of officials: GET https://bank.co.il/officials
+- Retrieving the list of officials by branch: GET https://bank.co.il/officials/branch
+- Official retrieval by ID: GET https://bank.co.il/officials/1
+- Adding an official: POST https://bank.co.il/officials
+- Official details update: PUT https://bank.co.il/officials/1
+- Deletion of an official by ID: DELETE https://bank.co.il/officials/1
+
+## Mapping Routes to Customers
+- Retrieving the customer list: GET https://bank.co.il/customers
+- Retrieving a list of customers by address: GET https://bank.co.il/customers/address
+- Customer retrieval by ID: GET https://bank.co.il/customers/1
+- Adding a customer: POST https://bank.co.il/customers
+- Updating customer details: PUT https://bank.co.il/customers/1
+- Deleting a customer by ID: DELETE https://bank.co.il/customers/1
