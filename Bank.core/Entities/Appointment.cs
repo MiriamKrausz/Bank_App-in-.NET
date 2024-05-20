@@ -10,13 +10,5 @@ namespace Bank.Entities
 
         public Customer Customer { get; set; }
         public Official Official { get; set; }
-
-        //public Appointment(int id, DateTime date, List<Customer> customers, List<Official> officials)
-        //{
-        //    Id = id;
-        //    Date = date;
-        //    Customers = customers;
-        //    Officials = officials;
-        //}
     }
 }

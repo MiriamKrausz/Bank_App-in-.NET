@@ -9,14 +9,5 @@
         public string City { get; set; }
         public int AppointmentId { get; set; }
         public List<Appointment> Appointments { get; set; }
-
-        //public Customer(int id, int phoneNumber, string name, string address, string city)
-        //{
-        //    Id = id;
-        //    PhoneNumber = phoneNumber;
-        //    Name = name;
-        //    Address = address;
-        //    City = city;
-        //}
     }
 }

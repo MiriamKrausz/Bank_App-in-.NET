@@ -12,14 +12,5 @@
         public int AppointmentId { get; set; }
         public List<Appointment> Appointments { get; set; }
 
-        //public Official(int id, string name, string addreess, string city, int age, int branchNumber)
-        //{
-        //    Id = id;
-        //    Name = name;
-        //    Addreess = addreess;
-        //    City = city;
-        //    Age = age;
-        //    BranchNumber = branchNumber;
-        //}
     }
 }

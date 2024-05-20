@@ -1,11 +1,6 @@
 ﻿using Bank.Core.Repositories;
 using Bank.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bank.Data.Repositories
 {
@@ -35,8 +30,6 @@ namespace Bank.Data.Repositories
         public async Task<Official> UpdateOfficialAsync(int id, Official official)
         {
             var updatedOfficial = _context.OfficialList.Find(id);
-            //if (updatedOfficial == null)
-            //    return null;
             updatedOfficial = official;
             await _context.SaveChangesAsync();
             return updatedOfficial;

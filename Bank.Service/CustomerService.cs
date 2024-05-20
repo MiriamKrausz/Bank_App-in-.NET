@@ -1,11 +1,7 @@
 ﻿using Bank.Core.Repositories;
 using Bank.Core.Services;
 using Bank.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Bank.Service
 {
@@ -31,11 +27,11 @@ namespace Bank.Service
         }
         public async Task<Customer> UpdateCustomerAsync(int id, Customer customer)
         {
-            return  await _customerRepository.UpdateCustomerAsync(id, customer);
+            return await _customerRepository.UpdateCustomerAsync(id, customer);
         }
-       public async Task DeleteCustomerAsync(int id)
+        public async Task DeleteCustomerAsync(int id)
         {
-           await  _customerRepository.DeleteCustomerAsync(id);
+            await _customerRepository.DeleteCustomerAsync(id);
         }
     }
 }

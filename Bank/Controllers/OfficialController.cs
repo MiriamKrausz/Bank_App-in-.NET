@@ -3,10 +3,8 @@ using Bank.Core.DTOs;
 using Bank.Core.Services;
 using Bank.Entities;
 using Bank.Models;
-using Bank.Service;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Bank.Controllers
 {
@@ -21,7 +19,7 @@ namespace Bank.Controllers
             _officialService = officialService;
             _mapper = mapper;
         }
-        // GET: api/<ValuesController>
+
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -30,33 +28,34 @@ namespace Bank.Controllers
             return Ok(listDto);
         }
 
-        // GET api/<ValuesController>/5
+
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var off = _officialService.GetOfficialByIdAsync(id);
+            var off = await _officialService.GetOfficialByIdAsync(id);
             if (off is null)
             {
                 return NotFound();
             }
-            // var apponitmentDto=_mapper.Map<AppointmentDto>(app);
-            return Ok(await off);
+            var officialtDto = _mapper.Map<OfficialDto>(off);
+            return Ok(officialtDto);
         }
-        // POST api/<ValuesController>
+
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] OfficialPostModel official)
         {
             var offToAdd = new Official { Name = official.Name, Addreess = official.Addreess, City = official.City, Age = official.Age, BranchNumber = official.BranchNumber, AppointmentId = official.AppointmentId };
-            return Ok(await _officialService.AddOfficialAsync(offToAdd));
+            await _officialService.AddOfficialAsync(offToAdd);
+            return Ok(_mapper.Map<OfficialDto>(offToAdd));
         }
-        // PUT api/<ValuesController>/5
+
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, [FromBody] Official official)
         {
             return Ok(await _officialService.UpdateOfficialAsync(id, official));
         }
 
-        // DELETE api/<ValuesController>/5
+
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {

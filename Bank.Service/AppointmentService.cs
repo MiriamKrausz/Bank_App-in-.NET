@@ -1,24 +1,11 @@
-﻿//using Bank.Core.Repositories;
-//using Bank.Core.Services;
-//using Bank.Entities;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-
+﻿
 using Bank.Core.Repositories;
 using Bank.Core.Services;
 using Bank.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bank.Service
 {
-    public class AppointmentService:IAppointmentService
+    public class AppointmentService : IAppointmentService
     {
         private readonly IAppointmentRepository _iAppointmentRepository;
         public AppointmentService(IAppointmentRepository iAppointmentRepository)
@@ -36,7 +23,7 @@ namespace Bank.Service
 
         public async Task<Appointment> AddAppointmentAsync(Appointment appointment)
         {
-            return  await _iAppointmentRepository.AddAppointmentAsync(appointment);
+            return await _iAppointmentRepository.AddAppointmentAsync(appointment);
         }
         public async Task<Appointment> UpdateAppointmentAsync(int id, Appointment appointment)
         {

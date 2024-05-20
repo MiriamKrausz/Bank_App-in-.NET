@@ -1,15 +1,11 @@
 ﻿using Bank.Core.Repositories;
 using Bank.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Bank.Data.Repositories
 {
-    public class AppointmentRepository:IAppointmentRepository
+    public class AppointmentRepository : IAppointmentRepository
     {
         private readonly DataContext _context;
 
@@ -18,9 +14,9 @@ namespace Bank.Data.Repositories
         {
             _context = dataContext;
         }
-        public async Task<List<Appointment>>GetAppointmentsAsync()
+        public async Task<List<Appointment>> GetAppointmentsAsync()
         {
-            return await _context.AppointmentList.Include(u=>u.Customer).Include(u=>u.Official).ToListAsync();
+            return await _context.AppointmentList.Include(u => u.Customer).Include(u => u.Official).ToListAsync();
         }
         public async Task<Appointment> GetByIdAsync(int id)
         {
@@ -29,16 +25,14 @@ namespace Bank.Data.Repositories
         public async Task<Appointment> AddAppointmentAsync(Appointment appointment)
         {
             _context.AppointmentList.Add(appointment);
-           await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
             return appointment;
         }
         public async Task<Appointment> UpdateAppointmentAsync(int id, Appointment appointment)
         {
             var updatedAppointment = _context.AppointmentList.Find(id);
-            //if (updatedBank_Account == null)
-            //    return null;
             updatedAppointment = appointment;
-           await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
             return updatedAppointment;
         }
         public async Task DeleteAppointmentAsync(int id)
